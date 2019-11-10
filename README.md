@@ -13,7 +13,7 @@ ClamSea - Backend of ClamCloud. Written in Go.
 
 Thanks for these awesome softwares!
 
-## Database
+### Database
 - PostgreSQL
 
 ### Golang
