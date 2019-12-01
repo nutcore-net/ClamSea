@@ -32,5 +32,10 @@ import (
 
 func AddRoutes(r *gin.RouterGroup) {
 	//TODO Add real routes
-	r.Static("/", ".")
+	r.GET("/", func(c *gin.Context) {
+		c.JSON(200, gin.H{
+			"status": 0,
+			"data":   "hello",
+		})
+	})
 }

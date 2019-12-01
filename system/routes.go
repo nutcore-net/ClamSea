@@ -19,7 +19,7 @@
  * Created Date: 2019-11-10 11:09:30 +08:00
  * Author: DTSDAO
  *
- * Last Modified: 2019-11-10 15:52:56 +08:00
+ * Last Modified: 2019-12-01 18:30:29 +08:00
  * Modified By: DTSDAO
  * ---------------------------------------------------------------
  */
@@ -27,10 +27,17 @@
 package system
 
 import (
+	"clamsea/system/controllers"
 	"github.com/gin-gonic/gin"
 )
 
 func AddRoutes(r *gin.RouterGroup) {
 	//TODO Add real routes
-	r.Static("/", ".")
+	r.GET("/", func(c *gin.Context) {
+		c.JSON(200, gin.H{
+			"status": 0,
+			"data":   "hello",
+		})
+	})
+	r.GET("/version", controllers.GetVersion)
 }

@@ -19,7 +19,7 @@
  * Created Date: 2019-11-09 14:34:50 +08:00
  * Author: DTSDAO
  *
- * Last Modified: 2019-11-10 15:34:24 +08:00
+ * Last Modified: 2019-12-01 18:21:10 +08:00
  * Modified By: DTSDAO
  * ---------------------------------------------------------------
  */
@@ -29,10 +29,11 @@ package main
 import (
 	"github.com/gin-gonic/gin"
 
-	festival "clamsea/festival"
-	forum "clamsea/forum"
-	system "clamsea/system"
-	users "clamsea/users"
+	"clamsea/festival"
+	"clamsea/forum"
+	"clamsea/shared"
+	"clamsea/system"
+	"clamsea/users"
 )
 
 func routing(r *gin.RouterGroup) {
@@ -49,5 +50,5 @@ func main() {
 
 	routing(api)
 
-	engine.Run()
+	engine.Run(shared.Config().Addr)
 }

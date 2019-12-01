@@ -19,7 +19,7 @@
  * Created Date: 2019-11-09 17:39:41 +08:00
  * Author: DTSDAO
  *
- * Last Modified: 2019-11-10 15:51:38 +08:00
+ * Last Modified: 2019-12-01 18:30:04 +08:00
  * Modified By: DTSDAO
  * ---------------------------------------------------------------
  */
@@ -32,5 +32,10 @@ import (
 
 func AddRoutes(r *gin.RouterGroup) {
 	//TODO Add real routes
-	r.Static("/", ".")
+	r.GET("/", func(c *gin.Context) {
+		c.JSON(200, gin.H{
+			"status": 0,
+			"data":   "hello",
+		})
+	})
 }

@@ -16,26 +16,12 @@
  * ---------------------------------------------------------------
  * Project: ClamCloud
  *
- * Created Date: 2019-12-01 12:45:04 +08:00
+ * Created Date: 2019-12-01 17:12:36 +08:00
  * Author: DTSDAO
  *
- * Last Modified: 2019-12-01 18:30:52 +08:00
+ * Last Modified: 2019-12-01 17:17:30 +08:00
  * Modified By: DTSDAO
  * ---------------------------------------------------------------
  */
 
-package vote
-
-import (
-	"github.com/gin-gonic/gin"
-)
-
-func AddRoutes(r *gin.RouterGroup) {
-	//TODO Add real routes
-	r.GET("/", func(c *gin.Context) {
-		c.JSON(200, gin.H{
-			"status": 0,
-			"data":   "hello",
-		})
-	})
-}
+package controllers

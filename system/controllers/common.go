@@ -16,26 +16,26 @@
  * ---------------------------------------------------------------
  * Project: ClamCloud
  *
- * Created Date: 2019-12-01 12:45:04 +08:00
+ * Created Date: 2019-12-01 17:12:49 +08:00
  * Author: DTSDAO
  *
- * Last Modified: 2019-12-01 18:30:52 +08:00
+ * Last Modified: 2019-12-01 18:18:03 +08:00
  * Modified By: DTSDAO
  * ---------------------------------------------------------------
  */
 
-package vote
+package controllers
 
 import (
+	"clamsea/shared"
+	"net/http"
+
 	"github.com/gin-gonic/gin"
 )
 
-func AddRoutes(r *gin.RouterGroup) {
-	//TODO Add real routes
-	r.GET("/", func(c *gin.Context) {
-		c.JSON(200, gin.H{
-			"status": 0,
-			"data":   "hello",
-		})
+func GetVersion(c *gin.Context) {
+	c.JSON(http.StatusOK, gin.H{
+		"status": 0,
+		"data":   shared.Version,
 	})
 }
