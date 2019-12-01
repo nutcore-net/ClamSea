@@ -18,7 +18,7 @@
 		"exclude": [
 			"markdown",
 			"json",
-			"yaml"
+			"toml"
 		],
 		"autoHeader": "manualSave"
 	},

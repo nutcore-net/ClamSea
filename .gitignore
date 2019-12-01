@@ -3,4 +3,7 @@
 /log
 
 # Config
-/config.yml
+/config.toml
+
+# go mod
+go.sum
