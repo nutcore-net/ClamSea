@@ -16,26 +16,41 @@
  * ---------------------------------------------------------------
  * Project: ClamCloud
  *
- * Created Date: 2019-11-09 16:50:27 +08:00
+ * Created Date: 2019-11-09 17:04:06 +08:00
  * Author: DTSDAO
  *
- * Last Modified: 2019-12-01 18:30:19 +08:00
+ * Last Modified: 2019-12-06 20:51:59 +08:00
  * Modified By: DTSDAO
  * ---------------------------------------------------------------
  */
 
-package festival
+package forum
 
-import (
-	"github.com/gin-gonic/gin"
-)
+import "github.com/jinzhu/gorm"
 
-func AddRoutes(r *gin.RouterGroup) {
-	//TODO Add real routes
-	r.GET("/", func(c *gin.Context) {
-		c.JSON(200, gin.H{
-			"status": 0,
-			"data":   "hello",
-		})
-	})
+type Tag struct {
+	gorm.Model
+
+	Title string  `json:"title"`
+	Posts []*Post `json:"posts" gorm:"many2many:post_tags;"`
+}
+
+type Post struct {
+	gorm.Model
+
+	// Reply tree
+	To    uint `json:"to"`
+	Root  uint `json:"root"`
+	Depth uint `json:"depth"`
+
+	//Statistics
+	Votes int  `json:"votes"`
+	Views uint `json:"views"`
+
+	// Info
+	Title   string `json:"title"`
+	Content string `json:"content"`
+
+	Tags   []*Tag `json:"tags" gorm:"many2many:post_tags;"`
+	Author uint   `json:"author"`
 }

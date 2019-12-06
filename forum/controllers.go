@@ -16,36 +16,22 @@
  * ---------------------------------------------------------------
  * Project: ClamCloud
  *
- * Created Date: 2019-11-09 17:04:06 +08:00
+ * Created Date: 2019-11-09 17:44:14 +08:00
  * Author: DTSDAO
  *
- * Last Modified: 2019-11-10 15:49:07 +08:00
+ * Last Modified: 2019-12-06 20:59:56 +08:00
  * Modified By: DTSDAO
  * ---------------------------------------------------------------
  */
 
-package models
+package forum
 
-type Post struct {
-	ID uint `json:"id"`
+import (
+	"github.com/gin-gonic/gin"
+)
 
-	// Reply tree
-	To    uint `json:"to"`
-	Root  uint `json:"root"`
-	Depth uint `json:"depth"`
-
-	//Statistics
-	Votes int  `json:"votes"`
-	Views uint `json:"views"`
-
-	// Info
-	Title   string `json:"title"`
-	Content string `json:"content"`
-
-	Tags   []string `json:"tags"`
-	Author uint     `json:"Author"`
-
-	// Time
-	CreatedAt uint `json:"created_at"`
-	UpdatedAt uint `json:"updated_at"`
+func AddPost(c *gin.Context) {
+	//TODO Finish AddPost controller
 }
+
+//TODO Complete forum posts controllers

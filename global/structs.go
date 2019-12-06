@@ -19,27 +19,20 @@
  * Created Date: 2019-12-01 17:21:35 +08:00
  * Author: DTSDAO
  *
- * Last Modified: 2019-12-01 18:26:28 +08:00
+ * Last Modified: 2019-12-06 21:47:09 +08:00
  * Modified By: DTSDAO
  * ---------------------------------------------------------------
  */
 
-package shared
-
-import (
-	"path/filepath"
-	"sync"
-
-	"github.com/BurntSushi/toml"
-)
+package global
 
 type config struct {
 	Debug    bool
 	Addr     string
 	LogLoc   string
 	Secret   string
-	Database databaseConfig
-	Modules  modulesConfig
+	Database *databaseConfig
+	Modules  *modulesConfig
 }
 
 type databaseConfig struct {
@@ -54,39 +47,4 @@ type modulesConfig struct {
 	Vote     bool
 	Forum    bool
 	Festival bool
-}
-
-var (
-	Version = "V0.1"
-	cfg     = &config{
-		Debug:  true,
-		Addr:   ":9041",
-		LogLoc: "logs/",
-		Secret: "ClAmsEa",
-		Database: databaseConfig{
-			Host:     "127.0.0.1",
-			Port:     "5432",
-			User:     "clam",
-			DBName:   "clam",
-			Password: "",
-		},
-		Modules: modulesConfig{
-			Vote:     true,
-			Forum:    true,
-			Festival: true,
-		},
-	}
-	once sync.Once
-)
-
-func Config() *config {
-	once.Do(func() {
-		//TODO Add logger support
-		fpath, _ := filepath.Abs("./config.toml")
-		//fmt.Printf("parse toml file once. filePath: %s\n", fpath)
-		if _, err := toml.DecodeFile(fpath, &cfg); err != nil {
-			panic(err)
-		}
-	})
-	return cfg
 }
